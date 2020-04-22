@@ -1,14 +1,10 @@
 package sample.Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
-
-import javafx.event.ActionEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class MainController {
 
@@ -16,13 +12,11 @@ public class MainController {
     private Button goToButton;
 
     @FXML
+    private AnchorPane rootPane;
+
+    @FXML
     private void goTo(ActionEvent event) throws Exception {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/fxml/sample2.fxml"));
-
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.show();
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/sample/fxml/sample2.fxml"));
+        rootPane.getChildren().setAll(pane);
     }
 }
