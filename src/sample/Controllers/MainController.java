@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class MainController {
 
@@ -12,11 +12,11 @@ public class MainController {
     private Button goToButton;
 
     @FXML
-    private AnchorPane rootPane;
+    private Pane content;
 
     @FXML
     private void goTo(ActionEvent event) throws Exception {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/sample/fxml/sample2.fxml"));
-        rootPane.getChildren().setAll(pane);
+        Pane pane = FXMLLoader.load(getClass().getResource("/sample/fxml/sample2.fxml"));
+        content.getChildren().setAll(pane);
     }
 }
